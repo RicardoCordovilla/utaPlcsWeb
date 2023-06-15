@@ -33,7 +33,7 @@ let htmlRenderTable = ''
 
 const getUser = () => {
     userName = ''
-    getMe(baseUrl + '/users/me')
+    getMe(baseUrl + 'users/me')
         .then((data) => {
             console.log("userdata: ", data)
             userName = data.name
@@ -41,7 +41,7 @@ const getUser = () => {
             role = data.role
             // headerName.innerHTML = `Hola ${userName}- ${userId}`
             headerName.innerHTML = `Hola ${userName}`
-            getMisReservas(`${baseUrl}/reservas/user/${userId}`)
+            getMisReservas(`${baseUrl}reservas/user/${userId}`)
                 .then((data) => {
                     console.log("Mis reservas: ", data)
                     htmlRenderTable = ''
@@ -126,7 +126,7 @@ async function getReservas(url) {
 const pintarReservas = () => {
     getUser()
     getReservas(
-        `http://localhost:9000/api/v1/reservas?fecha=${fecha.value}&hora=${hora.value}:00`
+        `${baseUrl}reservas?fecha=${fecha.value}&hora=${hora.value}:00`
     )
         .then((data) => {
             console.log(data)
@@ -196,18 +196,20 @@ document.addEventListener('DOMContentLoaded', () => {
 modalSi.addEventListener('click', (e) => {
     e.preventDefault()
     createReserva(
-        "http://localhost:9000/api/v1/reservas",
+        baseUrl + "reservas",
         {
             "fecha": fecha.value,
             "hora": hora.value,
             "plcId": idBtnPlc
         }
     )
-        .then(() => {
-            pintarReservas()
-            modalContainer.classList.add('hideBx')
-            alert('Reserva confirmada')
+        .then((response) => {
+            console.log(response)
+            // pintarReservas()
+            // modalContainer.classList.add('hideBx')
+            // alert('Reserva confirmada')
         })
+        .catch(err => console.log(err.response.data))
 
 
 })

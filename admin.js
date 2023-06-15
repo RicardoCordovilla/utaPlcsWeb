@@ -11,7 +11,7 @@ const modalNo = document.getElementById('modalNo')
 const modalPlc = document.getElementById('modalPlc')
 const headerName = document.getElementById('headerName')
 
-const baseUrl = "https://uta-reservas-plcs.netlify.app/api/v1"
+const baseUrl = "https://uta-reservas-plcs.netlify.app/api/v1/"
 
 
 let userName = ''
@@ -30,7 +30,7 @@ let reservas = []
 
 const getUser = () => {
     userName = 'Hola '
-    getMe(baseUrl + '/users/me')
+    getMe(baseUrl + 'users/me')
         .then((data) => {
             console.log("userdata: ", data)
             userName += data.name
@@ -100,7 +100,7 @@ async function getReservas(url) {
 
 const pintarReservas = () => {
     getReservas(
-        `${baseUrl}/reservas?fecha=${fecha.value}&hora=${hora.value}:00`
+        `${baseUrl}reservas?fecha=${fecha.value}&hora=${hora.value}:00`
     )
         .then((data) => {
             console.log(data)
