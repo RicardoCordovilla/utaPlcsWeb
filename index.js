@@ -1,6 +1,10 @@
 const loginForm = document.getElementById('loginForm')
 const signupForm = document.getElementById('signupForm')
 
+// const baseUrl="http://localhost:9000/api/v1"
+const baseUrl = "plcswilson-production.up.railway.app/api/v1/"
+
+
 let userName = ''
 let role = ''
 let token = ''
@@ -14,7 +18,7 @@ loginForm.addEventListener("submit", (e) => {
     token = ''
 
 
-    login('http://localhost:9000/api/v1/auth/login',
+    login(baseUrl + 'auth/login',
         {
             "email": email,
             "password": pass
@@ -24,7 +28,7 @@ loginForm.addEventListener("submit", (e) => {
         .then((data) => {
             message = data.message
             token = data.token
-            role=data.role
+            role = data.role
             localStorage.setItem("token", token)
             console.log(data)
             if (message === 'Invalid Credentials') {
@@ -56,7 +60,7 @@ signupForm.addEventListener("submit", (e) => {
     const nombre = signupForm.nombre.value
     const pass = signupForm.pass.value
 
-    register('http://localhost:9000/api/v1/auth/register',
+    register(baseUrl + 'auth/register',
         {
             "name": nombre,
             "ci": cedula,
@@ -67,11 +71,11 @@ signupForm.addEventListener("submit", (e) => {
     )
         .then((data) => {
             console.log(data.created)
-            if(data.created=='succes'){
+            if (data.created == 'succes') {
                 alert('Usuario resgistrado correctamente')
                 window.location.href = 'index.html'
             }
-            else{
+            else {
                 alert('Este correo o cédula ya existe')
                 window.location.href = 'index.html'
             }

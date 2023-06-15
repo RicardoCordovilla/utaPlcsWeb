@@ -12,6 +12,9 @@ const modalPlc = document.getElementById('modalPlc')
 const headerName = document.getElementById('headerName')
 const tableContainer = document.getElementById('tableContainer')
 
+// const baseUrl="http://localhost:9000/api/v1"
+const baseUrl = "plcswilson-production.up.railway.app/api/v1/"
+
 
 
 let userName
@@ -30,7 +33,7 @@ let htmlRenderTable = ''
 
 const getUser = () => {
     userName = ''
-    getMe('http://localhost:9000/api/v1/users/me')
+    getMe(baseUrl + '/users/me')
         .then((data) => {
             console.log("userdata: ", data)
             userName = data.name
@@ -38,7 +41,7 @@ const getUser = () => {
             role = data.role
             // headerName.innerHTML = `Hola ${userName}- ${userId}`
             headerName.innerHTML = `Hola ${userName}`
-            getMisReservas(`http://localhost:9000/api/v1/reservas/user/${userId}`)
+            getMisReservas(`${baseUrl}/reservas/user/${userId}`)
                 .then((data) => {
                     console.log("Mis reservas: ", data)
                     htmlRenderTable = ''
