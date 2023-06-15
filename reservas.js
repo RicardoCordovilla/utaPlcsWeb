@@ -12,7 +12,7 @@ const modalPlc = document.getElementById('modalPlc')
 const headerName = document.getElementById('headerName')
 const tableContainer = document.getElementById('tableContainer')
 
-// const baseUrl="http://localhost:9000/api/v1"
+// const baseUrl = "http://localhost:9000/api/v1/"
 const baseUrl = "https://plcswilson-production.up.railway.app/api/v1/"
 
 
@@ -20,8 +20,12 @@ const baseUrl = "https://plcswilson-production.up.railway.app/api/v1/"
 let userName
 let userId
 let idBtnPlc
-let role = 'normal'
-let token = 'jwt ' + localStorage.getItem("token")
+let role = ''
+const token = 'jwt ' + localStorage.getItem("token")
+console.log(token )
+// console.log(localStorage.getItem("token"))
+// localStorage.setItem("token",'fadfdghert5645645')
+// console.log(localStorage.getItem("token"))
 console.log(token)
 
 let plcs = ["1", "2", "3"]
@@ -33,8 +37,11 @@ let htmlRenderTable = ''
 
 const getUser = () => {
     userName = ''
-    getMe(baseUrl + 'users/me')
+    const url = baseUrl + 'users/me'
+    console.log(url, token)
+    getMe(url)
         .then((data) => {
+            console.log(data)
             console.log("userdata: ", data)
             userName = data.name
             userId = data.id
@@ -72,6 +79,7 @@ getUser()
 
 
 async function getMe(url) {
+    console.log(url, token)
     const response = await fetch(url, {
         method: 'GET',
         mode: 'cors',
@@ -205,9 +213,12 @@ modalSi.addEventListener('click', (e) => {
     )
         .then((response) => {
             console.log(response)
-            // pintarReservas()
-            // modalContainer.classList.add('hideBx')
-            // alert('Reserva confirmada')
+            if (response.id) {
+                pintarReservas()
+                modalContainer.classList.add('hideBx')
+                alert('Reserva confirmada')
+
+            }
         })
         .catch(err => console.log(err.response.data))
 

@@ -11,7 +11,8 @@ const modalNo = document.getElementById('modalNo')
 const modalPlc = document.getElementById('modalPlc')
 const headerName = document.getElementById('headerName')
 
-const baseUrl = "https://uta-reservas-plcs.netlify.app/api/v1/"
+// const baseUrl = "http://localhost:9000/api/v1/"
+const baseUrl = "https://plcswilson-production.up.railway.app/api/v1/"
 
 
 let userName = ''
@@ -29,15 +30,17 @@ let reservas = []
 
 
 const getUser = () => {
-    userName = 'Hola '
+    userName = ''
+    console.log(baseUrl + 'users/me')
     getMe(baseUrl + 'users/me')
         .then((data) => {
-            console.log("userdata: ", data)
+            console.log(data)
+            // console.log("userdata: ", data)
             userName += data.name
             userId = data.id
             role = data.role
             console.log("role: ", role)
-            headerName.innerText = userName
+            headerName.innerText = `Hola ${userName}`
         })
 
 }
@@ -45,6 +48,7 @@ getUser()
 
 
 async function getMe(url) {
+    console.log(url + token)
     const response = await fetch(url, {
         method: 'GET',
         mode: 'cors',

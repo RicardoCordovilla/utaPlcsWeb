@@ -1,8 +1,9 @@
 const loginForm = document.getElementById('loginForm')
 const signupForm = document.getElementById('signupForm')
 
-// const baseUrl="http://localhost:9000/api/v1"
+// const baseUrl = "http://localhost:9000/api/v1/"
 const baseUrl = "https://plcswilson-production.up.railway.app/api/v1/"
+
 
 
 let userName = ''
@@ -29,8 +30,8 @@ loginForm.addEventListener("submit", (e) => {
             message = data.message
             token = data.token
             role = data.role
-            localStorage.setItem("token", token)
             console.log(data)
+            localStorage.setItem("token", token)
             if (message === 'Invalid Credentials') {
                 alert('clave o correo incorrecto')
                 loginForm.reset()
