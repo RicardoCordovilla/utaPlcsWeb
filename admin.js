@@ -143,28 +143,28 @@ const pintarReservas = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     plcsContainer.addEventListener('click', (e) => {
-        if (role == 'admin') {
-            idBtnPlc = e.target.dataset.plc
-            reservaName = e.target.dataset.name
-            idReserva = e.target.dataset.id
-            console.log("target.classList: ", e.target.classList)
-            console.log("target.dataset.id: ", idReserva)
-            if (e.target.classList.contains('btnReservar')) {
-                modalContainer.classList.remove('hideBx')
-                modalName.innerText = reservaName
-                modalFecha.innerText = fecha.value
-                modalHora.innerText = hora.value
-                modalPlc.innerHTML = `PLC- ${idBtnPlc}`
-                // modalPlc.innerHTML = `PLC- ${idReserva}`
-            }
+        // if (role == 'admin') {
+        idBtnPlc = e.target.dataset.plc
+        reservaName = e.target.dataset.name
+        idReserva = e.target.dataset.id
+        console.log("target.classList: ", e.target.classList)
+        console.log("target.dataset.id: ", idReserva)
+        if (e.target.classList.contains('btnReservar')) {
+            modalContainer.classList.remove('hideBx')
+            modalName.innerText = reservaName
+            modalFecha.innerText = fecha.value
+            modalHora.innerText = hora.value
+            modalPlc.innerHTML = `PLC- ${idBtnPlc}`
+            // modalPlc.innerHTML = `PLC- ${idReserva}`
         }
+        // }
     })
 })
 
 modalSi.addEventListener('click', (e) => {
     e.preventDefault()
     deleteReserva(
-        `${baseUrl}/reservas/${idReserva}`
+        `${baseUrl}reservas/${idReserva}`
     )
         .then(() => {
             pintarReservas()

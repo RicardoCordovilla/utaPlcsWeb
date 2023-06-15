@@ -22,12 +22,7 @@ let userId
 let idBtnPlc
 let role = ''
 const token = 'jwt ' + localStorage.getItem("token")
-console.log(token )
-// console.log(localStorage.getItem("token"))
-// localStorage.setItem("token",'fadfdghert5645645')
-// console.log(localStorage.getItem("token"))
 console.log(token)
-
 let plcs = ["1", "2", "3"]
 let plcsR = []
 let plcsEmpty = []
@@ -185,20 +180,21 @@ const pintarReservas = () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (role == 'normal') {
-        plcsContainer.addEventListener('click', (e) => {
-            idBtnPlc = e.target.dataset.id
-            console.log("target.classList: ", e.target.classList)
-            console.log("target.dataset.id: ", e.target.dataset.id)
-            if (e.target.classList.contains('btnReservar')) {
-                modalContainer.classList.remove('hideBx')
-                modalName.innerText = userName
-                modalFecha.innerText = fecha.value
-                modalHora.innerText = hora.value
-                modalPlc.innerHTML = `PLC- ${e.target.dataset.id}`
-            }
-        })
-    }
+    // if (role == 'normal') {
+    plcsContainer.addEventListener('click', (e) => {
+        console.log(e.target)
+        idBtnPlc = e.target.dataset.id
+        console.log("target.classList: ", e.target.classList)
+        console.log("target.dataset.id: ", e.target.dataset.id)
+        if (e.target.classList.contains('btnReservar')) {
+            modalContainer.classList.remove('hideBx')
+            modalName.innerText = userName
+            modalFecha.innerText = fecha.value
+            modalHora.innerText = hora.value
+            modalPlc.innerHTML = `PLC- ${e.target.dataset.id}`
+        }
+    })
+    // }
 })
 
 modalSi.addEventListener('click', (e) => {
