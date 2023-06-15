@@ -13,7 +13,7 @@ const headerName = document.getElementById('headerName')
 const tableContainer = document.getElementById('tableContainer')
 
 // const baseUrl="http://localhost:9000/api/v1"
-const baseUrl = "plcswilson-production.up.railway.app/api/v1/"
+const baseUrl = "https://plcswilson-production.up.railway.app/api/v1/"
 
 
 
