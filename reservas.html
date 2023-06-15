@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVAS | reservar </title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header class="header">
+        <h2 id="headerName">Hola </h2>
+        <div class="navMenu">
+            <a href="index.html" class="aLink">SALIR</a>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="sideReservasContainer">
+            <h3>Mis reservas</h3>
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>PLC</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContainer">
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+        <div class="searchBx">
+
+            <h3>Realizar una nueva reserva reservar</h3>
+
+            <header class="headerReservas">
+                <ol>
+                    <li>
+                        <p>Seleccionar fecha para ver disponibilidad</p>
+                    </li>
+                    <br>
+                    <li>
+                        <p>En la parte inferior se podrá seleccionar el PLC que se desee reservar</p>
+                    </li>
+                </ol>
+            </header>
+
+            <a href="reservas.html" class="aLink"
+            style="align-self: flex-end; position: absolute; top: 65%; left: 76%;"
+            >ver MANUAL</a>
+
+
+            <input type="date" id="fecha">
+            <select class="horaSelect" id="hora">
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+            </select>
+            <!-- <button id="btnBuscar" class="buttonSearch">BUSCAR</button> -->
+
+
+
+
+        </div>
+
+
+        <div class="plcsContainer" id="plcsContainer">
+
+            <!-- <div class="plcBx">
+        <h2>PLC1</h2>
+        <button id="btnReservar" class="btnReservar">Reservar</button> -->
+
+        </div>
+
+    </main>
+
+
+    <div class="modalConfirmacionContainer hideBx" id="modalConfirmacionContainer">
+        <div class="modalConfirmacion" id="modalConfirmacion">
+            <h2 class="modalTitle">CONFIRMACIÓN</h2>
+            <div class="fieldsContainer">
+                <div class="fieldBx">
+                    <p>Nombre: </p>
+                    <h3 id="modalName"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Fecha: </p>
+                    <h3 id="modalFecha"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Hora: </p>
+                    <h3 id="modalHora"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Plc: </p>
+                    <h3 id="modalPlc"></h3>
+                </div>
+            </div>
+
+
+            <br>
+            <hr>
+            <br>
+
+            <p class="pSiNo">¿Confirmar la reserva?</p>
+            <div class="modalBtsBx">
+                <button id="modalSi" class="btnModal">SI</button>
+                <button id="modalNo" class="btnModal btnModalNo">Aún no</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="reservas.js"></script>
+</body>
+
+</html>

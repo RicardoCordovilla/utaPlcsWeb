@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVAS | admin </title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <main>
+
+
+
+
+        <header class="headerReservas">
+
+            <div class="header">
+                <a href="index.html" class="aLink">SALIR</a>
+            </div>
+            <br>
+            <h2 id="headerName">Hola </h2>
+            <br>
+            <ol>
+                <li>
+                    <p>Seleccionar fecha para ver las reservas</p>
+                </li>
+                <br>
+                <li>
+                    <p>En la parte inferior se podrá seleccionar el PLC que se desee eliminar</p>
+                </li>
+            </ol>
+        </header>
+        <hr>
+
+        <div class="searchBx">
+            <input type="date" id="fecha">
+            <select class="horaSelect" id="hora">
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+            </select>
+            <!-- <button id="btnBuscar" class="buttonSearch">BUSCAR</button> -->
+        </div>
+
+        <div class="plcsContainer" id="plcsContainer">
+            <!-- <div class="plcBx">
+            <h2>PLC1</h2>
+            <button id="btnReservar" class="btnReservar">Reservar</button>
+        </div> -->
+
+        </div>
+    </main>
+
+
+    <div class="modalConfirmacionContainer hideBx" id="modalConfirmacionContainer">
+        <div class="modalConfirmacion" id="modalConfirmacion">
+            <h2 class="modalTitle">CONFIRMACIÓN</h2>
+            <div class="fieldsContainer">
+                <div class="fieldBx">
+                    <p>Nombre: </p>
+                    <h3 id="modalName"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Fecha: </p>
+                    <h3 id="modalFecha"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Hora: </p>
+                    <h3 id="modalHora"></h3>
+                </div>
+
+                <div class="fieldBx">
+                    <p>Plc: </p>
+                    <h3 id="modalPlc"></h3>
+                </div>
+            </div>
+
+
+            <br>
+            <hr>
+            <br>
+
+            <p class="pSiNo">¿Eliminar la reserva?</p>
+            <div class="modalBtsBx">
+                <button id="modalSi" class="btnModal">SI</button>
+                <button id="modalNo" class="btnModal btnModalNo">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
